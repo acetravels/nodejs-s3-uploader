@@ -1,0 +1,12 @@
+{
+
+	"name":"imager",
+	"description":"image processing engine",
+	"dependencies":{
+		"express":"*",
+		"gm":"*",
+		"aws-sdk":"*",
+		"formidable":"*",
+		"util":"*"
+	}
+}
