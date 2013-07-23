@@ -1,26 +1,27 @@
-NODEJS S3 UPLOADER
-==================
+Node.js S3 Uploader
+===================
 
 This nodejs application can be used to resize and upload file(s) of multiple dimensions to Amazon S3. If the provided dimensions do not have the same aspect ratio as the original one, the resized images will be cropped horizontally or vertically. 
 
-PREREQUISITE
+Prerequisite
 ------------
 * node.js
 * npm
+* mongodb
 
-HOW TO SETUP
+How to setup
 ------------
 * git clone https://github.com/acetravels/nodejs-s3-uploader.git
 * npm install
 
-
-HOW TO RUN
+How to run
 ----------
+* start mongodb
 * On the command prompt/shell, run: `node server.js` at the project directory path.
 * UI to load the file: `http://localhost:3000`
 * In the ui, browse for the file to upload, and provide name and description details
 
-CONFIGURATION
+Configuration
 -------------
 * Rename awsconfig.example.json to awsconfig.json
 * Provide `accessKeyId`, `secretAccessKey` and change `region` if it's not in us-east-1.
@@ -100,7 +101,7 @@ CONFIGURATION
     ]
   }
 
-LICENSE
+License
 -------
 GPL. This application is not free of bugs, and it comes with no warranties of any sort.
 Please feel free to make changes to the project and request for pull request.
