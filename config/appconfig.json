@@ -1,10 +1,11 @@
 {
-	"upload_folder":"uploads",
+	"upload_folder":"../../uploads",
 	"upload_file_extension":".jpg",
 	"max_form_field_size_in_mb": 10,
 	"s3_url": "https://s3.amazonaws.com/",
-	"bucket_name": "holiday-dev",
+	"bucket_name": "ace-travels",
 	"s3_file_acl": "public-read",
 	"s3_file_content_type": "image/jpeg",
+	"port": "80",
 	"sizes": [{"w":640,"h":360,"url":null}, {"w":360,"h":640,"url":null}, {"w":80,"h":80,"url":null}]
 }

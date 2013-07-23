@@ -1,3 +1,7 @@
 node_modules/
 uploads/
-awsconfig.json
+.monitor
+config/config.js
+config/imager.js
+config/awsconfig.json
+Makefile
