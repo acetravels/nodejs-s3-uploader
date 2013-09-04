@@ -107,9 +107,10 @@ function saveImage(res, id, sizes, index, fields) {
       console.log("BUCKET_NAME: "+BUCKET_NAME);
 
       var s3bucket = new AWS.S3({params: {Bucket: BUCKET_NAME}});
-      console.log("s3bucket: "+JSON.stringify(s3bucket));
+      console.log("s3bucket object created");
 
-      s3bucket.createBucket(function() {
+      s3bucket.createBucket(function(err) {
+        if (err) console.log(err);
         console.log("s3 bucket created");
 
         var x = (w*oh)/(h*ow);
