@@ -88,6 +88,14 @@ function saveImage(res, id, sizes, index, fields) {
   var local_file_original = __dirname + "/" + UPLOAD_FOLDER + "/" + name_with_extn_original;
   var local_file_resized = __dirname + "/" + UPLOAD_FOLDER + "/" + name_with_extn_resized;
 
+  console.log("w: "+w);
+  console.log("h: "+h);
+  console.log("SIZE_METADATA: "+SIZE_METADATA);
+  console.log("name_with_extn_original: "+name_with_extn_original);
+  console.log("name_with_extn_resized: "+name_with_extn_resized);
+  console.log("local_file_original: "+local_file_original);
+  console.log("local_file_resized: "+local_file_resized);
+
   fs.readFile(local_file_original, function(err, data){
     gm(data).size(function(err, size){
       var ow = size.width;
