@@ -97,7 +97,10 @@ function saveImage(res, id, sizes, index, fields) {
   console.log("local_file_resized: "+local_file_resized);
 
   fs.readFile(local_file_original, function(err, data){
+    console.log("data: "+JSON.stringify(data));
+    
     gm(data).size(function(err, size){
+      console.log("size: "+JSON.stringify(size));
       var ow = size.width;
       var oh = size.height;
       console.log("ow: "+ow);
