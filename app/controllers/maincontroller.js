@@ -100,16 +100,26 @@ function saveImage(res, id, sizes, index, fields) {
     gm(data).size(function(err, size){
       var ow = size.width;
       var oh = size.height;
+      console.log("ow: "+ow);
+      console.log("oh: "+oh);
+
+      console.log("BUCKET_NAME: "+BUCKET_NAME);
 
       var s3bucket = new AWS.S3({params: {Bucket: BUCKET_NAME}});
       s3bucket.createBucket(function() {
         var x = (w*oh)/(h*ow);
         var iw = 0, ih = 0;
         var xc = 0, yc = 0;
+
+        console.log("x: "+x);
         
         if(x>=1){
           ih = (oh*w)/ow;
           yc = Math.floor(Math.abs((ih-h)*0.5));
+
+          console.log("ih: "+ih);
+          console.log("yc: "+yc);
+
           gm(data).resize(w, ih).crop(w, h, 0, yc).write(local_file_resized, function(err){
             uploadToS3(local_file_resized, name_with_extn_resized, s3bucket, function(err){
               sizes[index].url = S3_URL + BUCKET_NAME+"/"+name_with_extn_resized;
@@ -126,6 +136,10 @@ function saveImage(res, id, sizes, index, fields) {
         }else{
           iw = (ow*h)/oh;
           xc = Math.floor(Math.abs((iw-w)*0.5));
+
+          console.log("iw: "+iw);
+          console.log("xc: "+xc);
+
           gm(data).resize(iw, h).crop(w, h, xc, 0).write(local_file_resized, function(err){
             uploadToS3(local_file_resized, name_with_extn_resized, s3bucket, function(err){
               sizes[index].url = S3_URL + BUCKET_NAME+"/"+name_with_extn_resized;
