@@ -44,6 +44,8 @@ exports.upload = function (req, res) {
   })
 
   form.on('end', function() {
+    console.log("fields: "+JSON.stringify(fields));
+    console.log("files: "+JSON.stringify(files));
   });
 
   form.parse(req, function(err, fields, files) {
