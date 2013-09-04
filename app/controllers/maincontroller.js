@@ -97,19 +97,21 @@ function saveImage(res, id, sizes, index, fields) {
   console.log("local_file_resized: "+local_file_resized);
 
   fs.readFile(local_file_original, function(err, data){
-    console.log("data: "+JSON.stringify(data));
-    
+
     gm(data).size(function(err, size){
       console.log("size: "+JSON.stringify(size));
       var ow = size.width;
       var oh = size.height;
       console.log("ow: "+ow);
       console.log("oh: "+oh);
-
       console.log("BUCKET_NAME: "+BUCKET_NAME);
 
       var s3bucket = new AWS.S3({params: {Bucket: BUCKET_NAME}});
+      console.log("s3bucket object created");
+
       s3bucket.createBucket(function() {
+        console.log("s3 bucket created");
+
         var x = (w*oh)/(h*ow);
         var iw = 0, ih = 0;
         var xc = 0, yc = 0;
