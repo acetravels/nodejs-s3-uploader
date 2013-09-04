@@ -50,6 +50,7 @@ exports.upload = function (req, res) {
 
   form.parse(req, function(err, fields, files) {
     var path = files.media.path;
+    console.log("path: "+path);
 
     getFileID(path, function (id){
       saveImage(res, id, SIZES, 0, fields);
