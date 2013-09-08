@@ -13,6 +13,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 })
 
 var app = express()
+app.enable("jsonp callback")
 require('./config/express')(app, config)
 require('./config/routes')(app)
 var port = 3000

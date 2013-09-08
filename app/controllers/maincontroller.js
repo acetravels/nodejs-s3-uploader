@@ -70,7 +70,7 @@ exports.detail = function(req, res){
   console.log("image id: "+req.params.imageid);
   Image.findOne({"image_id":req.params.imageid}, function(err, data){
     if(err) throw err;
-    res.json(data);
+    res.jsonp(data);
   })
 }
 
