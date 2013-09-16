@@ -12,7 +12,7 @@ var Image = mongoose.model('Image');
 var s3 = new AWS.S3();
 
 var appconfig = require('../../config/appconfig.json');
-AWS.config.loadFromPath('../../config/awsconfig.json');
+AWS.config.loadFromPath('./config/awsconfig.json');
 
 var UPLOAD_FOLDER = appconfig.upload_folder;
 var UPLOAD_FILE_EXTENSION = appconfig.upload_file_extension;
